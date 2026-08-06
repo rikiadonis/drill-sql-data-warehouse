@@ -2,4 +2,4 @@
 Building a modern data warehouse with SQL Server, incuding ETL processes, data modeling, and analytics
 
 
-<http://www.example.com/>
+[kliknij tu](http://www.example.com/)
