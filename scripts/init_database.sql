@@ -4,7 +4,7 @@ Create Database and Schemas
 ================================================================================-
 Script Purpose:
   This script creates a new databases named 'DrillDataWarehouse' after checking if it already exists.
-  Id database exists, it is dropped and recreated. Additionaly, the scripts sets up three schemas
+  If database exists, it is dropped and recreated. Additionaly, the scripts sets up three schemas
   within databse: 'bronze', 'silver', and 'gold'.
 
 WARNING:
