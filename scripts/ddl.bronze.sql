@@ -1,3 +1,12 @@
+/*
+========================================================================================
+DDL Script: Craete Bronze Table
+========================================================================================
+Script Purpose: 
+  This script creates tables in the 'bronze' schema, drpping existing tables if they already exist.
+  Rum this script to re-define the DDL structure of 'bronze' Tables.
+*/
+
 USE DrillDataWarehouse;
 GO
 IF OBJECT_ID('bronze.cmr_cust_info', 'U') IS NOT NULL
@@ -36,5 +45,29 @@ CREATE TABLE bronze.cmr_sales_details(
   sls_sales INT,
   sls_quantity INT,
   sls_price INT
+);
+GO
+IF OBJECT_ID('bronze.erp_cust_az12', 'U') IS NOT NULL
+  DROP TABLE bronze.erp_cust_az12
+CREATE TABLE bronze.erp_cust_az12(
+  cid NVARCHAR(50),
+  bdate DATE,
+  gen NVARCHAR(50)
+);
+GO
+IF OBJECT_ID('bronze.erp_loc_a101', 'U') IS NOT NULL
+  DROP TABLE bronze.erp_loc_a101
+CREATE TABLE bronze.erp_loc_a101(
+  cid NVARCHAR(50),
+  cntry NVARCHAR(50)
+);
+GO
+IF OBJECT_ID('bronze.erp_px_cat_g1v2', 'U') IS NOT NULL
+  DROP TABLE brozne.erp_px_cat_g1v2;
+CREATE TABLE bronze.erp_px_cat_g1v2(
+  id NVARCHAR(50),
+  cat NVARCHAR(50),
+  subcat NVARCHAR(50),
+  maintenance NVARCHAR(50)
 );
 GO
