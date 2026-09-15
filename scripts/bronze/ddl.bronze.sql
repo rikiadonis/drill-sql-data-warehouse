@@ -4,7 +4,7 @@
 DDL Script: Craete Bronze Table
 ========================================================================================
 Script Purpose: 
-  This script creates tables in the 'bronze' schema, drpping existing tables if they already exist.
+  This script creates tables in the 'bronze' schema, dropping existing tables if they already exist.
   Rum this script to re-define the DDL structure of 'bronze' Tables.
 */
 
