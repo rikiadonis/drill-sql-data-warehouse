@@ -37,7 +37,7 @@ GO
 IF OBJECT_ID('bronze.cmr_sales_details', 'U') IS NOT NULL
   DROP TABLE bronze.cmr_sales_details;
 CREATE TABLE bronze.cmr_sales_details(
-  sls_ord_num NVARCGAR(50),
+  sls_ord_num NVARCHAR(50),
   sls_prd_key NVARCHAR(50),
   sls_cust_id INT,
   sls_order_dt INT,
