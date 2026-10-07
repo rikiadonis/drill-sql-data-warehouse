@@ -1,3 +1,13 @@
+/*
+===================================================================================
+DDL Script: Create Silcer Tables
+===================================================================================
+Sceipt Purpose: 
+  This scripts creates tables in the 'silver' schema, dropping exting tables
+  if they arlready exists.
+  Run this script to re-define the DDL structure of 'bronze' Tables.
+===================================================================================
+*/
 USE DrillDataWarehouse;
 GO
 IF OBJECT_ID('silver.cmr_cust_info', 'U') IS NOT NULL
