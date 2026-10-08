@@ -144,7 +144,7 @@ BEGIN
 				ELSE ca.gen
 			END gen
 		FROM bronze.erp_cust_az12 ca
-		JOIN silver.cmr_cust_info ci ON ca.cid = ci.cst_key
+		LEFT JOIN silver.cmr_cust_info ci ON ca.cid = ci.cst_key
 		SET @end_time = GETDATE()
 		PRINT('>> Load Duartion: ' + CAST(DATEDIFF(MILLISECOND, @start_time, @end_time)AS NVARCHAR) + ' milliseconds')
 		PRINT('--------------------------------------------------------------------------------------------------')
