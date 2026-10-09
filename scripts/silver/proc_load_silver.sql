@@ -137,14 +137,17 @@ BEGIN
 				WHEN SUBSTRING(UPPER(TRIM(cid)), 1,3) = 'NAS' 
 				THEN SUBSTRING(UPPER(TRIM(cid)), 4, LEN(cid))
 				ELSE UPPER(TRIM(cid))
-			END cid, 
-			bdate,
+			END cid,
 			CASE
-				WHEN ca.gen IS NULL THEN ci.cst_gndr
-				ELSE ca.gen
+				WHEN bdate BETWEEN '1920-01-01' AND GETDATE() THEN bdate
+				ELSE NULL
+			END bdate,
+			CASE
+				WHEN UPPER(TRIM(gen)) IN ('M', 'MALE') THEN 'Male'
+				WHEN UPPER(TRIM(gen)) IN ('F', 'FEMALE') THEN 'Female'
+				ELSE 'n/a'
 			END gen
-		FROM bronze.erp_cust_az12 ca
-		LEFT JOIN silver.cmr_cust_info ci ON ca.cid = ci.cst_key
+		FROM bronze.erp_cust_az12
 		SET @end_time = GETDATE()
 		PRINT('>> Load Duartion: ' + CAST(DATEDIFF(MILLISECOND, @start_time, @end_time)AS NVARCHAR) + ' milliseconds')
 		PRINT('--------------------------------------------------------------------------------------------------')
